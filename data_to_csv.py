@@ -19,16 +19,15 @@ for product in product_files:
             df1 = pd.DataFrame(df['Reviews'][0]) # extracting the reviews and store in a temp df
             if len(df) != 0: # check if df is empty
                 # empty df means that there was no text review by that user, and we want to remove such data as it is not meaningful to us
-                df1['Product_ProductID'] = df.iloc[0]['ProductInfo.ProductID']
+                df1['Product_ID'] = df.iloc[0]['ProductInfo.ProductID']
                 df1['Product_Name'] = df.iloc[0]['ProductInfo.Name']
                 df1['Product_Features'] = df.iloc[0]['ProductInfo.Features']
                 df1['Product_Price'] = df.iloc[0]['ProductInfo.Price']
-                df1['Product_ImgURL'] = df.iloc[0]['ProductInfo.ImgURL']
                 
                 product_df = product_df.append(df1, ignore_index = True) # append into the product df created earlier if there is a review
     
     # drop records with no reviews
-    product_df.dropna(subset = ['Content'], inplace = True)
+    product_df.dropna(subset = ['Content', 'Product_Name'], inplace = True)
 
     # exporting processed data into csv file
     os.mkdir('Cleaned Data') # creating a new directory to store the data
