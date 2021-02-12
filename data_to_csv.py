@@ -4,6 +4,7 @@ import json
 import os
 import glob
 
+# please change this path to your own path when you are running
 path = '/Users/chenjianyu/Desktop/Y2S2/IS450 Text Mining and Language Processing/Project/AmazonReviews/'
 
 product_files = [filename for filename in os.listdir(path) if filename != '.DS_Store']
