@@ -7,7 +7,7 @@ from pandas.io.json import json_normalize
 import json
 import glob
 import pickle
-from clf import *
+# from clf import *
 
 # Text Processing
 import nltk
@@ -19,7 +19,6 @@ from textblob import TextBlob
 import re
 import gensim
 from gensim.models import CoherenceModel
-import pyLDAvis.gensim
 from sklearn.decomposition import LatentDirichletAllocation
 from sklearn.feature_extraction.text import CountVectorizer
 
@@ -220,7 +219,7 @@ def get_corex_top_negative_reviews(topics_df, pid, topic, n):
 
 # LDA_Mallet 
 def get_category_reviews(category):
-    df = pd.read_csv(f'./Data/Cleaned Data/laptops_reviews.csv')
+    df = pd.read_csv(f'./Data/Cleaned Data/{category}_reviews.csv')
     sent_df = sent_tokenize_to_df(df)
 
     return sent_df
